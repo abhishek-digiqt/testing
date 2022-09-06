@@ -3,12 +3,12 @@ pipeline {
     stages{
         stage("Install Newman"){
             steps{
-               sh 'npm install -g newman'
+               sh 'sudo npm install -g newman'
             }
         }
         stage("Test"){
             steps{
-                sh 'newman test.json'
+                sh 'sudo newman test.json'
             }
         }
         stage("Build"){
