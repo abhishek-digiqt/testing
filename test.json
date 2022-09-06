@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "74cef6cd-80df-4681-a6dc-6ad26d3c7cbd",
+		"name": "Unit Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6316165"
+	},
+	"item": [
+		{
+			"name": "Get Todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success Response\",()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.be.an(\"object\").that.has.keys(\"message\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "postId",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
