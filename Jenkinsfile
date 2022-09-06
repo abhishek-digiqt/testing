@@ -9,7 +9,7 @@ pipeline {
         stage("Build"){
             steps{
             sh 'sudo docker build . -t test-jenkins'
-            sh 'sudo docker run -p 4040:4040 --name test test-jenkins:latest'
+            sh 'sudo docker run  -d -p 4040:4040 --name test test-jenkins:latest'
             sh 'sudo docker ps'
         }
         }
