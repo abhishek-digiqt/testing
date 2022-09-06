@@ -12,6 +12,7 @@ pipeline {
             }
         }
         stage("Build"){
+            steps{
             sh 'sudo docker stop test && sudo docker container rm stop'
             sh 'sudo docker build . -t test-jenkins'
             sh 'sudo docker run -p 4040:4040 --name test test-jenkins:latest'
