@@ -3,19 +3,19 @@ pipeline {
     stages{
         stage("Install Newman"){
             steps{
-                npm install -g newman
+               sh 'npm install -g newman'
             }
         }
         stage("Test"){
             steps{
-                newman test.json
+                sh 'newman test.json'
             }
         }
         stage("Build"){
-            sudo docker stop test && sudo docker container rm stop
-            sudo docker build . -t test-jenkins
-            sudo docker run -p 4040:4040 --name test test-jenkins:latest
-            sudo docker ps
+            sh 'sudo docker stop test && sudo docker container rm stop'
+            sh 'sudo docker build . -t test-jenkins'
+            sh 'sudo docker run -p 4040:4040 --name test test-jenkins:latest'
+            sh 'sudo docker ps'
         }
     }
 }
