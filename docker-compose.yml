@@ -10,7 +10,7 @@ services:
       restart_policy:
         condition: on-failure
         max_attempts: 3
-    expose:
+    ports:
       - "4044"
     volumes:
       - .:/app
