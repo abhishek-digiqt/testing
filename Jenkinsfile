@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'log 0'
+                echo 'pwd && ls'
                 sh 'sudo docker ps'
                 sh 'build.sh'
                 echo 'log 1'
