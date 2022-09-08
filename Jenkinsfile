@@ -13,8 +13,8 @@ pipeline {
                 sh 'sudo docker-compose up --build --force-recreate -d' 
                 sh 'sudo docker ps'
                 
-                sh 'netstat -an | awk '$4~/:22$/{print $NF}''
                 sh 'sudo docker logs newman-script'
+                sh 'netstat -an | awk '$4~/:22$/{print $NF}''
             }
         }
         stage('Newman Test') {
