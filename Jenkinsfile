@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'sudo newman run test.json --env-var "port=4040"'
+                sh 'sudo newman run test.json --env-var "host=4040"'
             }
         }
     }
