@@ -16,9 +16,9 @@ pipeline {
             steps {
                 sh 'pwd && ls'
                 sh 'sudo docker ps'
-                sh 'build.sh'
+                sh './build.sh'
                 echo 'log 1'
-                sh 'run.sh'
+                sh './run.sh'
                 echo 'log 2'
                 sh 'sudo docker ps'
             }
