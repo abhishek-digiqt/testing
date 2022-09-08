@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Newman Test') {
             steps {
-                sh 'netstat -an | awk '$4~/:22$/{print $NF}''
+                sh 'sudo netstat -plnt'
                 sh 'sudo newman run newman-script.json --env-var "host=0.0.0.0:4040"'
             }
         }
