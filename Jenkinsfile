@@ -2,14 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Newman') {
+        stage('Installing Newman') {
             steps {
                 sh 'sudo npm install -g newman'
-            }
-        }
-        stage('Echo') {
-            steps {
-                echo 'echo what!!!'
             }
         }
         stage('Build') {
@@ -19,9 +14,9 @@ pipeline {
                 sh 'sudo docker ps'
             }
         }
-        stage('Test') {
+        stage('Newman Test') {
             steps {
-                sh 'sudo newman run test.json --env-var "host=4040"'
+                sh 'sudo newman run newman-script.json --global-var "port=4040"'
             }
         }
     }
