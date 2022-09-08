@@ -11,7 +11,7 @@ pipeline {
             sh 'sudo docker build . -t newman-jenkins'
             
             sh 'sudo docker rm newman'
-            sh 'sudo docker run -d --name newman  --network=host newman'
+            sh 'sudo docker run -d --name newman --restart=on-failure:5 --network=host newman'
                 
             sh 'sudo docker ps'
         }
