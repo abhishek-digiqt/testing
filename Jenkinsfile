@@ -20,7 +20,7 @@ pipeline {
         stage('Newman Test') {
             steps {
                 sh 'sudo netstat -tln'
-                sh 'sudo newman run newman-script.json --env-var "host=0.0.0.0:4040"'
+                sh 'sudo newman run newman-script.json --env-var "host=:::4040"'
             }
         }
     }
