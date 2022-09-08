@@ -12,7 +12,7 @@ pipeline {
                 sh 'sudo docker rm newman-script'
                 sh 'sudo docker-compose up --build --force-recreate -d' 
                 sh 'sudo docker ps'
-                sh 'sudo docker logs --tail 200 newman-script'
+                sh 'sudo docker logs newman-script'
             }
         }
         stage('Newman Test') {
