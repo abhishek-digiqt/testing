@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'sudo docker stop newman-script'
                 sh 'sudo docker rm newman-script'
                 sh 'sudo bash build.sh'
                 sh 'sudo bash run.sh'
