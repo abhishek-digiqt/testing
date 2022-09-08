@@ -7,6 +7,11 @@ pipeline {
                 sh 'sudo npm install -g newman'
             }
         }
+        stage('Echo') {
+            steps {
+                echo 'echo what'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'sudo docker build . -t newman-jenkins'
