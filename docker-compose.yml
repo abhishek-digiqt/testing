@@ -11,6 +11,6 @@ services:
         condition: on-failure
         max_attempts: 3
     ports:
-      - "4044"
+      - "4044:4044"
     volumes:
       - .:/app
