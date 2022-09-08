@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  newman-script:
+    container_name: newman-script
+    network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    volumes:
+      - .:/app
