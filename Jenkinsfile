@@ -8,11 +8,11 @@ pipeline {
     }
         stage("Build"){
             steps{
-            sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-jenkins)'
             sh 'sudo docker build . -t newman-jenkins'
             
             sh 'sudo docker rm newman'
             sh 'sudo docker run -d --name newman  --network=host newman'
+                
             sh 'sudo docker ps'
         }
         }
