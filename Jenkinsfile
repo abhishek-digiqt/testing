@@ -9,9 +9,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'sudo docker ps'
-            }
-            steps {
                 sh 'sudo docker build . -t newman-jenkins'
             }
             steps {
