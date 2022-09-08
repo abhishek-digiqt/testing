@@ -14,12 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'pwd && ls'
-                sh 'sudo docker ps'
-                sh 'sudo bash ./build.sh'
-                echo 'log 1'
-                sh 'sudo bash ./run.sh'
-                echo 'log 2'
+                sh 'sudo docker-compose up --build --force-recreate -d' 
                 sh 'sudo docker ps'
             }
         }
