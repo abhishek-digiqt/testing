@@ -15,14 +15,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'sudo docker build . -t newman-jenkins'
-            }
-            steps {
-               sh 'sudo docker rm newman'
-            }
-            steps {
-               sh 'sudo docker run -d --name newman --restart=on-failure:5 --network=host newman'
-            }
-            steps {
+                
+                sh 'sudo docker rm newman'
+                sh 'sudo docker run -d --name newman --restart=on-failure:5 --network=host newman'
+                
                 sh 'sudo docker ps'
             }
         }
