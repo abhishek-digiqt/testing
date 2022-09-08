@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "a82e6c4f-1753-4a62-b626-4ca2f66a072d",
+		"name": "newman-script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17601494"
+	},
+	"item": [
+		{
+			"name": "health-check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}\\",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status test\", function () {",
+					"    pm.response.to.have.status(200);",
+					"    pm.response.to.not.be.error;",
+					"    pm.response.to.not.have.jsonBody(\"\");",
+					"    pm.response.to.not.have.jsonBody(\"error\");",
+					"    pm.response.to.be.ok;",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:4040",
+			"type": "string"
+		},
+		{
+			"key": "host ",
+			"value": "localhost:3000",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
