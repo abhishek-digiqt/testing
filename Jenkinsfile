@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'sudo docker rm newman-script'
                 sh 'sudo docker-compose up --build --force-recreate -d' 
                 sh 'sudo docker ps'
             }
