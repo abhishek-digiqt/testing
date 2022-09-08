@@ -16,9 +16,9 @@ pipeline {
             steps {
                 echo 'log 0'
                 sh 'sudo docker ps'
-                sh 'sudo docker build . -t newman-jenkins:latest'
+                sh 'build.sh'
                 echo 'log 1'
-                sh 'sudo docker run -d --name newman --restart=on-failure:5 --network=host newman-jenkins'
+                sh 'run.sh'
                 echo 'log 2'
                 sh 'sudo docker ps'
             }
