@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Newman Test') {
             steps {
-                sh 'sudo newman run newman-script.json --env-var "host=localhost:4040"'
+                sh 'sudo newman run newman-script.json --env-var "host=0.0.0.0:4040"'
             }
         }
     }
