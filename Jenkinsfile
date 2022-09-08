@@ -15,7 +15,8 @@ pipeline {
         }
         stage("Test"){
             steps{
-                sh 'sudo newman run  test.json'
+                sh 'sudo newman run test.json'
+                echo 'nice!!'
             }
         }
     }
