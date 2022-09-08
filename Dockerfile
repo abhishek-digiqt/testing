@@ -1,4 +1,3 @@
-FROM ubuntu:20.04
 FROM node:18
 WORKDIR /app
 COPY package.json .
