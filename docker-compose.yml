@@ -5,7 +5,7 @@ services:
     network_mode: host
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: DockerfileMain
     deploy:
       restart_policy:
         condition: on-failure

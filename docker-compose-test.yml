@@ -5,14 +5,10 @@ services:
     network_mode: host
     build:
       context: .
-      dockerfile: DockerFileTest
+      dockerfile: DockerfileTest
     deploy:
       restart_policy:
         condition: on-failure
         max_attempts: 3
-    expose:
-      - "4045"
-    ports:
-      - "4045"
     volumes:
       - .:/app
