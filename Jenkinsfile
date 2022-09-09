@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Test Build') {
             steps {
+                sh 'sudo docker stop newman-script'
                 // sh 'sudo docker stop newman-script-test'
                 // sh 'sudo docker rm newman-script-test'
                 // build
@@ -27,7 +28,7 @@ pipeline {
             steps {
                 sh 'sudo netstat -tln'
                 // sh 'sudo lsof -i :4043'
-                sh 'sudo newman run newman-script.json --env-var "host=localhost:4044"'
+                sh 'sudo newman run newman-script.json --env-var "host=localhost:4430"'
 
                 echo 'APIs Tested Successfully!'
 
@@ -38,7 +39,6 @@ pipeline {
         }
         stage('Main Build') {
             steps {
-                sh 'sudo docker stop newman-script'
                 sh 'sudo docker rm newman-script'
                 // build
                 // sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-script)'
