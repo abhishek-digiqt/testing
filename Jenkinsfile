@@ -21,6 +21,7 @@ pipeline {
 //                 sh 'sudo bash run.sh'
                 sh 'sudo docker-compose -f docker-compose-test.yml up --build --force-recreate -d' 
                 sh 'sudo docker ps'
+                sh 'sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a'
             }
         }
         stage('Newman Test') {
