@@ -21,16 +21,15 @@ pipeline {
 //                 sh 'sudo bash run.sh'
                 sh 'sudo docker-compose -f docker-compose-test.yml up --build --force-recreate -d' 
                 sh 'sudo docker ps'
-                sh 'sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a'
             }
         }
         stage('Newman Test') {
             steps {
                 sh 'sudo netstat -tln'
                 // sh 'sudo lsof -i :4043'
-                sh 'sudo newman run newman-script.json --env-var "host=localhost:4045"'
+                sh 'sudo newman run newman-script.json --env-var "host=localhost:4044"'
 
-                echo 'APIs tested Successfully!'
+                echo 'APIs Tested Successfully!'
 
                 sh 'sudo docker stop newman-script-test'
                 sh 'sudo docker rm newman-script-test'
