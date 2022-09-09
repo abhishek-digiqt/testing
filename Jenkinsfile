@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test-Build') {
             steps {
-                sh 'sudo docker stop newman-scrip || truet'
+                sh 'sudo docker stop newman-script || true'
                 sh 'sudo docker stop newman-script-test || true'
                 sh 'sudo docker rm newman-script-test || true'
                 // build
