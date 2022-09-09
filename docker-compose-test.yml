@@ -5,7 +5,7 @@ services:
     network_mode: host
     build:
       context: .
-      dockerfile: DockerfileTest
+      dockerfile: DockerFileTest
     deploy:
       restart_policy:
         condition: on-failure
