@@ -1,0 +1,14 @@
+version: "3.0"
+services:
+  newman-script:
+    container_name: newman-script-test
+    network_mode: host
+    build:
+      context: .
+      dockerfile: DockerfileTest
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    volumes:
+      - .:/app
