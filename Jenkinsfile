@@ -41,10 +41,10 @@ pipeline {
                 // sh 'sudo docker stop newman-script'
                 // sh 'sudo docker rm newman-script'
                 // build
-//                 sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-script)'
-                // sh 'sudo docker build . -t newman-script'
+                // sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-script)'
+                sh 'sudo docker build . -t newman-script -f DockerfileMain'
                 //run
-                // sh 'sudo docker run -d --name newman-script --restart=on-failure:5 --network=host newman-script'
+                sh 'sudo docker run -d --name newman-script --restart=on-failure:5 --network=host newman-script'
                 sh 'sudo docker-compose up --build --force-recreate -d'
                 sh 'sudo docker ps'
             }
