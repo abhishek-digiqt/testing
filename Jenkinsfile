@@ -10,6 +10,7 @@ pipeline {
         stage('Test-Build') {
             steps {
                 sh 'sudo docker stop newman-script-test || true'
+                sh 'sudo docker rm newman-script-test || true'
                 // build
                 sh 'sudo docker build . -t newman-script-test -f DockerfileTest'
                 //run
@@ -32,6 +33,7 @@ pipeline {
         stage('Main Build') {
             steps {
                 sh 'sudo docker stop newman-script || true'
+                sh 'sudo docker rm newman-script || true'
                 // build
                 sh 'sudo docker build . -t newman-script -f DockerfileMain'
                 //run
