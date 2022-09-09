@@ -14,7 +14,7 @@ pipeline {
                 sh 'sudo bash build.sh'
                 sh 'sudo bash run.sh'
 //                 sh 'sudo docker-compose up --build --force-recreate -d' 
-                sh 'sudo docker ps'
+                sh 'sudo docker ps --no-trunc'
             }
         }
         stage('Newman Test') {
