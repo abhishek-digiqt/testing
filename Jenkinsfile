@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Newman Test') {
             steps {
-                sh 'sudo newman run newman-script.json --env-var "host=localhost:4431"'
+                sh 'sudo newman run newman-script.json --env-var "host=localhost:4430"'
 
                 echo 'APIs Tested Successfully!'
 
