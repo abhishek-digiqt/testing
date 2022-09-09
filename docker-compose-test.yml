@@ -4,7 +4,7 @@ services:
     container_name: newman-script-test
     network_mode: host
     build:
-      context: .
+      context: ./
       dockerfile: DockerfileTest
     deploy:
       restart_policy:
