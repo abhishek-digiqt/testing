@@ -1,6 +1,6 @@
 version: "3.0"
 services:
-  newman-script:
+  newman-script-test:
     container_name: newman-script-test
     network_mode: host
     build:
