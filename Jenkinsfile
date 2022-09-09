@@ -7,7 +7,7 @@ pipeline {
                 sh 'sudo npm install -g newman'
             }
         }
-        stage('Test Build') {
+        stage('Test-Build') {
             steps {
                 sh 'sudo docker stop newman-script'
                 // sh 'sudo docker stop newman-script-test'
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh 'sudo netstat -tln'
                 // sh 'sudo lsof -i :4043'
-                sh 'sudo newman run newman-script.json --env-var "host=localhost:4430"'
+                sh 'sudo newman run newman-script.json --env-var "host=localhost:4431"'
 
                 echo 'APIs Tested Successfully!'
 
