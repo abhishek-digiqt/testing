@@ -11,9 +11,9 @@ pipeline {
             steps {
                 sh 'sudo docker stop newman-script'
                 sh 'sudo docker rm newman-script'
-                sh 'sudo bash build.sh'
-                sh 'sudo bash run.sh'
-//                 sh 'sudo docker-compose up --build --force-recreate -d' 
+//                 sh 'sudo bash build.sh'
+//                 sh 'sudo bash run.sh'
+                sh 'sudo docker-compose up --build --force-recreate -d' 
                 sh 'sudo docker ps'
             }
         }
