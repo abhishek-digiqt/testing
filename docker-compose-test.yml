@@ -4,8 +4,8 @@ services:
     container_name: newman-script-test
     network_mode: host
     build:
-      context: ./
-      dockerfile: DockerfileTest
+      context: .
+      dockerfile: ./DockerfileTest
     deploy:
       restart_policy:
         condition: on-failure
