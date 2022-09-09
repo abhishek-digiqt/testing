@@ -26,7 +26,7 @@ pipeline {
         stage('Newman Test') {
             steps {
                 sh 'sudo netstat -tln'
-                sh 'sudo lsof -i :4043'
+                // sh 'sudo lsof -i :4043'
                 sh 'sudo newman run newman-script.json --env-var "host=localhost:4043"'
 
                 echo 'APIs tested Successfully!'
