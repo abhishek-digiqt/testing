@@ -9,9 +9,9 @@ pipeline {
         }
         stage('Test-Build') {
             steps {
-                sh 'sudo docker stop newman-script'
-                // sh 'sudo docker stop newman-script-test'
-                // sh 'sudo docker rm newman-script-test'
+                sh 'sudo docker stop newman-scrip || truet'
+                sh 'sudo docker stop newman-script-test || true'
+                sh 'sudo docker rm newman-script-test || true'
                 // build
                 // sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-script-test)'
                 sh 'sudo docker build . -t newman-script-test -f DockerfileTest'
@@ -32,14 +32,14 @@ pipeline {
 
                 echo 'APIs Tested Successfully!'
 
-                sh 'sudo docker stop newman-script-test'
-                sh 'sudo docker rm newman-script-test'
+                sh 'sudo docker stop newman-script-test || true'
+                sh 'sudo docker rm newman-script-test || true'
                 sh 'sudo docker ps'
             }
         }
         stage('Main Build') {
             steps {
-                sh 'sudo docker rm newman-script'
+                sh 'sudo docker rm newman-script || true'
                 // build
                 // sh 'sudo docker stop $(sudo -S docker ps -q --filter ancestor=newman-script)'
                 sh 'sudo docker build . -t newman-script -f DockerfileMain'
