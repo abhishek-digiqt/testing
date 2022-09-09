@@ -30,7 +30,7 @@ pipeline {
                 sh 'sudo docker ps'
             }
         }
-        stage('Main Build') {
+        stage('Main-Build') {
             steps {
                 sh 'sudo docker stop newman-script || true'
                 sh 'sudo docker rm newman-script || true'
