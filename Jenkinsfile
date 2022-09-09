@@ -19,6 +19,8 @@ pipeline {
                 
 //                 sh 'sudo bash build.sh'
 //                 sh 'sudo bash run.sh'
+                sh 'sudo docker stop 2840a79603cd'
+                sh 'sudo docker rm 2840a79603cd'
                 sh 'sudo docker-compose -f docker-compose-test.yml up --build --force-recreate -d' 
                 sh 'sudo docker ps'
             }
