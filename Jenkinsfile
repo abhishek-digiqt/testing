@@ -19,7 +19,7 @@ pipeline {
                 
 //                 sh 'sudo bash build.sh'
 //                 sh 'sudo bash run.sh'
-                sh 'sudo docker-compose -f docker-compose-test.yml -up --build --force-recreate -d' 
+                sh 'sudo docker-compose -f docker-compose-test.yml up --build --force-recreate -d' 
                 sh 'sudo docker ps'
             }
         }
