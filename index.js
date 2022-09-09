@@ -5,7 +5,7 @@ config();
 const server = express();
 
 const test = (req,res)=>{
-    return res.status(200).json({message:"success"});
+    return res.status(400).json({message:"success"});
 }
 const router = express.Router();
 router.get("/", test);
